@@ -35,5 +35,13 @@ namespace ISSD_TP4_DLP3_DAI5_clase09
             Session["carrito"] = carrito;
             llenarGrilla();
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Session["carrito"] = null;
+            llenarGrilla();
+            GridView1.DataSource = Session["carrito"];
+            GridView1.DataBind();
+        }
     }
 }

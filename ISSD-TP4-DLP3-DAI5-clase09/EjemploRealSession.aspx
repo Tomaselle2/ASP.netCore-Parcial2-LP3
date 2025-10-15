@@ -15,6 +15,7 @@
             <br />
             <asp:GridView ID="GridView1" runat="server">
             </asp:GridView>
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Vaciar Carrito" />
             <br />
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Menu.aspx">Volver Menu</asp:HyperLink>
         </div>

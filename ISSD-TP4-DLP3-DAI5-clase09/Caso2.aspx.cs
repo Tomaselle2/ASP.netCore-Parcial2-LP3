@@ -11,7 +11,15 @@ namespace ISSD_TP4_DLP3_DAI5_clase09
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["carrito"] != null)
+            {
+                List<string> carrito = (List<string>)Session["carrito"];
+                Label1.Text = string.Empty;
+                Label1.Text = "<hr>";
+                foreach (string item in carrito) { 
+                    Label1.Text += $"{item} <br>";
+                }
+            }
         }
     }
 }

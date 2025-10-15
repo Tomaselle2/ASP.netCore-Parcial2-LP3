@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,12 @@ namespace ISSD_TP4_DLP3_DAI5_clase09
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HttpCookie cookie = Request.Cookies["colorFondo"];
+            if (cookie != null)
+            {
+                string color = cookie.Value;
+                Label1.Text = color;
+            }
         }
     }
 }
