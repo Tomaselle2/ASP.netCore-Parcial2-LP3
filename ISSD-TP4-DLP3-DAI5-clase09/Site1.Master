@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ISSD_TP4_DLP3_DAI5_clase09.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <asp:Label ID="Label2" runat="server" Text="Bienvenido Header"></asp:Label>
+            </header>
+            <nav>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Caso1.aspx">Caso1</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Caso2.aspx">Caso2</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Menu.aspx">Menu sin pagina Maestra</asp:HyperLink>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer>
+                <asp:Label ID="Label1" runat="server" Text="Copyright Footer"></asp:Label>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
