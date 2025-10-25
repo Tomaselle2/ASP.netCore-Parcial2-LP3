@@ -14,7 +14,7 @@
         <nav>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Carrito.aspx">Carrito</asp:HyperLink>
         &nbsp;
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Cerrar sesion" />
+            <asp:Button ID="Button1" runat="server" CausesValidation="False" OnClick="Button1_Click" Text="Cerrar sesion" />
         </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

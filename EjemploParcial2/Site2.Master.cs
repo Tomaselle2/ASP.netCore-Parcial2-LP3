@@ -19,6 +19,7 @@ namespace EjemploParcial2
             if (Session["usuario"] != null)
             {
                 Session["usuario"] = null;
+                Session["carrito"] = null;
                 Response.Redirect("Login.aspx");
             }
         }
