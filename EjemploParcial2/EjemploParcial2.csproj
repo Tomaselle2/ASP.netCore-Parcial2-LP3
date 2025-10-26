@@ -71,6 +71,7 @@
     <Content Include="Carrito.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Registrar.aspx" />
+    <Content Include="TablaArchivos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +82,7 @@
     <Compile Include="Archivo.aspx.designer.cs">
       <DependentUpon>Archivo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Archivo.cs" />
     <Compile Include="Carrito.aspx.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +125,13 @@
     </Compile>
     <Compile Include="Site3.Master.designer.cs">
       <DependentUpon>Site3.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TablaArchivos.aspx.cs">
+      <DependentUpon>TablaArchivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TablaArchivos.aspx.designer.cs">
+      <DependentUpon>TablaArchivos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
