@@ -19,7 +19,15 @@ namespace EjemploParcial2
         {
             Session["usuario"] = TextBox1.Text;
             TextBox1.Text = string.Empty;
-            ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Usuario registrado exitosamente');", true);
+            string script = $@"
+                        Swal.fire({{
+                            title: 'Éxito',
+                            text: '{$"Usuario registrado exitosamente."}',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar'
+                        }});
+                ";
+            ScriptManager.RegisterStartupScript(this, GetType(), "SweetAlert", script, true);
         }
     }
 }

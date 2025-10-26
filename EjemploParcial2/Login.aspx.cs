@@ -22,7 +22,15 @@ namespace EjemploParcial2
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Usuario incorrecto, intente nuevamente');", true);
+                string script = $@"
+                        Swal.fire({{
+                            title: 'Error',
+                            text: '{$"Usuario incorrecto, intente nuevamente."}',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        }});
+                ";
+                ScriptManager.RegisterStartupScript(this, GetType(), "SweetAlert", script, true);
             }
 
         }

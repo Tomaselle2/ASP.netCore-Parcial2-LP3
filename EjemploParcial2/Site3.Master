@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="EjemploParcial2.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site3.master.cs" Inherits="EjemploParcial2.Site3" %>
 
 <!DOCTYPE html>
 
@@ -12,14 +12,14 @@
 <body>
     <form id="form1" runat="server">
         <nav>
-             <asp:HyperLink runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>  &nbsp;&nbsp;&nbsp;  <asp:HyperLink runat="server" NavigateUrl="~/Registrar.aspx">Registrarse</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server">Subir archivo</asp:HyperLink>
+        &nbsp;
+            <asp:HyperLink ID="HyperLink2" runat="server">Tabla de archivos</asp:HyperLink>
         </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     </form>
 </body>
 </html>
