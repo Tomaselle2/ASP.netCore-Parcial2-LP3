@@ -12,15 +12,15 @@
 <body>
     <form id="form1" runat="server">
         <nav>
-            <asp:HyperLink ID="HyperLink1" runat="server">Subir archivo</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Archivo.aspx">Subir archivo</asp:HyperLink>
         &nbsp;
-            <asp:HyperLink ID="HyperLink2" runat="server">Tabla de archivos</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/TablaArchivos.aspx">Tabla de archivos</asp:HyperLink>
         </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     </form>
 </body>
