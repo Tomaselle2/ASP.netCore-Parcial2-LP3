@@ -13,8 +13,6 @@
     <form id="form1" runat="server">
         <nav>
              <asp:HyperLink runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>  &nbsp;&nbsp;&nbsp;  <asp:HyperLink runat="server" NavigateUrl="~/Registrar.aspx">Registrarse</asp:HyperLink>
-        &nbsp;&nbsp;
-             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Archivo.aspx">Archivos</asp:HyperLink>
         </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

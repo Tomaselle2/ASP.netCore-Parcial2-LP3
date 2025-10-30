@@ -17,7 +17,10 @@ namespace EjemploParcial2
         //Registrar btn
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Session["usuario"] = TextBox1.Text;
+            HttpCookie user = new HttpCookie("usuario", TextBox1.Text);
+            user.Expires = DateTime.Now.AddMinutes(30);
+            Response.Cookies.Add(user);
+
             TextBox1.Text = string.Empty;
             string script = $@"
                         Swal.fire({{

@@ -16,9 +16,24 @@ namespace EjemploParcial2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Session["usuario"] != null && Session["usuario"].ToString() == TextBox1.Text)
+            HttpCookie user = Request.Cookies["usuario"];
+            if (user != null && user.Value.ToString() == TextBox1.Text)
             {
-                Response.Redirect("Carrito.aspx");
+                //List<string> carrito = new List<string>();
+                //Session["carrito"] = carrito;
+
+                string[] usuario = {user.Value.ToString(), DropDownList1.SelectedValue.ToString()};
+
+                Session["usuarioLogueado"] = usuario;
+
+                if (DropDownList1.SelectedValue.ToString() == "Usuario")
+                {
+                    Response.Redirect("Carrito.aspx");
+                }
+                if (DropDownList1.SelectedValue.ToString() == "Administrador")
+                {
+                    Response.Redirect("Archivo.aspx");
+                }
             }
             else
             {

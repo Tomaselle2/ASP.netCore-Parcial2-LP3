@@ -16,10 +16,10 @@ namespace EjemploParcial2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Session["usuario"] != null)
+            if (Session["usuarioLogueado"] != null)
             {
-                Session["usuario"] = null;
                 Session["carrito"] = null;
+                Session["usuarioLogueado"] = null;
                 Response.Redirect("Login.aspx");
             }
         }
