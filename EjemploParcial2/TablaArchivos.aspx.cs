@@ -42,7 +42,7 @@ namespace EjemploParcial2
             if (e.CommandName == "Descargar")
             {
                 GridViewRow registro = GridView1.Rows[Convert.ToInt32(e.CommandArgument)];
-                string filePath = registro.Cells[4].Text;
+                string filePath = registro.Cells[5].Text;
 
                 Response.ContentType = "application/octet-stream";
                 Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(filePath));
@@ -52,7 +52,7 @@ namespace EjemploParcial2
             if (e.CommandName == "Eliminar")
             {
                 GridViewRow registro = GridView1.Rows[Convert.ToInt32(e.CommandArgument)];
-                string fileName = registro.Cells[2].Text;
+                string fileName = registro.Cells[3].Text;
                 string fullPath = Path.Combine(Server.MapPath("~/files"), fileName);
                 if (File.Exists(fullPath))
                 {
@@ -82,6 +82,93 @@ namespace EjemploParcial2
                 cargarGrilla();
             }
         }
-    
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GridView1.SelectedRow;
+            string nombreArchivo = row.Cells[3].Text;
+            Image1.ImageUrl = "~/images/" + nombreArchivo;
+        }
+
+        //boton de agregar productos
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.InsertParameters["descripcion"].DefaultValue = TextBox1.Text;
+            SqlDataSource1.InsertParameters["precio"].DefaultValue = TextBox2.Text;
+            SqlDataSource1.InsertParameters["url"].DefaultValue = FileUpload1.FileName;
+            
+
+            TextBox1.Text = string.Empty;
+            TextBox2.Text = string.Empty;
+
+            string result = string.Empty;
+            try
+            {
+                string path = $"{Server.MapPath(".")}/images";
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                foreach (HttpPostedFile archivo in FileUpload1.PostedFiles)
+                {
+                    bool validacion = true;
+                    if (archivo.FileName == "")
+                    {
+                        result += $"No selecciono ningun archivo";
+                        validacion = false;
+                    }
+                    if (archivo.ContentLength > 2097152)
+                    {
+                        result += $"El archivo {archivo.FileName} supera los 2 Mb. - ";
+                        validacion = false;
+                    }
+
+                    //archivo.ContentType = "text/plain"; "image/jpeg"; "application/pdf"; "application/zip";
+                    if (File.Exists($"{path}/{archivo.FileName}"))
+                    {
+                        result += $"El archivo {archivo.FileName} ya existe - ";
+                        validacion = false;
+                    }
+
+                    if (archivo.ContentType != "image/jpeg" && archivo.ContentType != "image/jpg" && archivo.FileName != "")
+                    {
+                        result += $"El archivo {archivo.FileName} no es imagen";
+                        validacion = false;
+                    }
+                    if (!validacion)
+                    {
+                        throw new Exception(result);
+                    }
+                    else
+                    {
+                        FileUpload1.SaveAs($"{path}/{archivo.FileName}");
+                        SqlDataSource1.Insert();
+                        string script = $@"
+                            Swal.fire({{
+                                title: 'Éxito',
+                                text: '{"Archivo guardado exitosamente"}',
+                                icon: 'success',
+                                confirmButtonText: 'Aceptar'
+                            }});
+                        ";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "SweetAlert", script, true);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                string script = $@"
+                Swal.fire({{
+                    title: 'Error',
+                    text: '{result}',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                }});
+            ";
+                ScriptManager.RegisterStartupScript(this, GetType(), "SweetAlert", script, true);
+            }
+        }
     }
 }
