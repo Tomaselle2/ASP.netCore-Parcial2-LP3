@@ -12,7 +12,10 @@ namespace EjemploParcial2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargarGrilla();
+            if (!IsPostBack)
+            {
+                cargarGrilla();
+            }
         }
 
         public void cargarGrilla()
@@ -85,7 +88,7 @@ namespace EjemploParcial2
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow row = GridView1.SelectedRow;
+            GridViewRow row = GridView2.SelectedRow;
             string nombreArchivo = row.Cells[3].Text;
             Image1.ImageUrl = "~/images/" + nombreArchivo;
         }
