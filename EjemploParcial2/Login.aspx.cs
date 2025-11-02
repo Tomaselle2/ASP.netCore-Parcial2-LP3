@@ -16,6 +16,8 @@ namespace EjemploParcial2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            System.Threading.Thread.Sleep(2000); // 2 segundos de demora
+
             HttpCookie user = Request.Cookies["usuario"];
             if (user != null && user.Value.ToString() == TextBox1.Text)
             {

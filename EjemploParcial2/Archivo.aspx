@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
 
     <h1>Subir archivo</h1>
     <br />

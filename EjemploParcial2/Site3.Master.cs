@@ -13,5 +13,16 @@ namespace EjemploParcial2
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread.Sleep(2000); // 2 segundos de demora
+
+            if (Session["usuarioLogueado"] != null)
+            {
+                Session["usuarioLogueado"] = null;
+                Response.Redirect("Login.aspx");
+            }
+        }
     }
 }

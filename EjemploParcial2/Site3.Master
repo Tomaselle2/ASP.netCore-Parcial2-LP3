@@ -11,10 +11,28 @@
 </head>
 <body>
     <form id="form1" runat="server">
+         <asp:ScriptManager ID="ScriptManager3" runat="server">
+ </asp:ScriptManager>
         <nav>
+            <br />
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Archivo.aspx">Subir archivo</asp:HyperLink>
         &nbsp;
             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/TablaArchivos.aspx">Tabla de archivos</asp:HyperLink>
+            <br />
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:Button ID="Button1" runat="server" CausesValidation="False" OnClick="Button1_Click" Text="Cerrar sesion" />
+                    <br />
+                    <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+                        <ProgressTemplate>
+                            <img alt="Cargando" src="cargando.gif" style="width: 248px" />
+                            <br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         <asp:Label ID="Label1" runat="server" Text="Vuelve pronto!!!"></asp:Label>
+                        </ProgressTemplate>
+                    </asp:UpdateProgress>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

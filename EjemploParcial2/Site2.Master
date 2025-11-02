@@ -8,18 +8,38 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 279px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <nav>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Carrito.aspx">Carrito</asp:HyperLink>
         &nbsp;
-            <asp:Button ID="Button1" runat="server" CausesValidation="False" OnClick="Button1_Click" Text="Cerrar sesion" />
-        </nav>
+            </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:Button ID="Button1" runat="server" CausesValidation="False" OnClick="Button1_Click" Text="Cerrar sesion" />
+                <br />
+                <asp:UpdateProgress ID="UpdateProgress1" runat="server" DisplayAfter="0">
+                 <ProgressTemplate>
+                        <img alt="Cargando" class="auto-style1" src="cargando.gif" />
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <asp:Label ID="Label1" runat="server" Text="Vuelve pronto!!!"></asp:Label>
+                 </ProgressTemplate>
+                </asp:UpdateProgress>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </form>
 </body>
 </html>
